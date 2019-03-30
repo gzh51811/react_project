@@ -13,6 +13,7 @@ const { Header, Content, Sider } = Layout;
 class MyList extends React.Component {
 
     render() {
+        // console.log(this.props)
         let { match } = this.props;
         return <div className="home">
 

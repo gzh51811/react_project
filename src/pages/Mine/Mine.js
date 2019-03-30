@@ -1,9 +1,9 @@
 import React from 'react';
 // import cartAction from '../../actions/cartAction';
-let Cart = () => {
+let Mine = () => {
     return <div className="home">
-        购物车
+        Mine
     </div>
 }
 
-export default Cart;
+export default Mine;

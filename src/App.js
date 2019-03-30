@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import Home from './pages/Home/Home';
 import List from './pages/List/List';
 import Goods from './pages/Goods/Goods';
+import Reg from './pages/Reg/Reg';
 import Cart from './pages/Cart/Cart';
 import './App.css';
 import { Menu, Icon, Badge } from 'antd';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import commonaction from "./actions/commonaction"
 import { Route, Redirect, Switch, NavLink, withRouter } from 'react-router-dom';
 class App extends Component {
   constructor() {
@@ -31,12 +35,31 @@ class App extends Component {
         },
         {
           text: '我的',
+          name: 'Mine',
+          path: '/mine',
+          icon: 'user'
+        },
+        {
+          text: '商品',
           name: 'Goods',
           path: '/goods',
           icon: 'user'
         },
+        {
+          text: '注册',
+          name: 'Reg',
+          path: '/reg',
+          icon: 'user'
+        },
+        {
+          text: '登录',
+          name: 'Login',
+          path: '/login',
+          icon: 'user'
+        },
       ],
-      current: 'Home'
+      current: 'Home',
+
     }
 
   }
@@ -47,44 +70,71 @@ class App extends Component {
     }, () => {
       //路由跳转：编程式导航
       // 利用withRouter()高阶组件实现history的传递
-
+      // console.log('App', this.props);
       this.props.history.push('/' + e.key.toLowerCase());
+
     });
   }
+
+  componentDidUpdate() {
+    let { show, hide, location } = this.props;
+    console.log(location)
+    if (location.pathname === "/home" || location.pathname === "/list" || location.pathname === "/cart" || location.pathname === "/mine") {
+      show()
+    } else {
+      hide();
+    }
+  }
+
+
   render() {
+
+    let { showMenu } = this.props;
+
     return (
       <div className="App">
+        {
+          showMenu ? <Menu
 
-        <Menu
+            onClick={this.handleClick.bind(this)}
+            mode="horizontal"
+            selectedKeys={[this.state.current]}
+            style={{ position: "fixed", bottom: 0, width: "100%", margin: 0, padding: 0, textAlign: "center" }}
 
-          onClick={this.handleClick.bind(this)}
-          mode="horizontal"
-          selectedKeys={[this.state.current]}
-          style={{ position: "fixed", bottom: 0, width: "100%", margin: 0, padding: 0, textAlign: "center" }}
+          >
+            {
+              this.state.navs.map((item, idx) => {
 
-        >
-          {
-            this.state.navs.map(item => <Menu.Item key={item.name} style={{ width: "25%", color: "#ccc", lineHeight: "27px" }}>
-              <>
-
-              </>
-              {
-                item.name == 'Cart'
-                  ?
-                  <Badge count={1}><Icon type={item.icon} style={{ display: "block", fontSize: "30px", margin: 0, padding: 0 }} />
-                    <span style={{ fontSize: "12px" }}>{item.text}</span></Badge>
-                  :
+                if (idx > 3) {
+                  return '';
+                }
+                return < Menu.Item key={item.name} style={{ width: "25%", color: "#ccc", lineHeight: "27px" }}>
                   <>
-                    <Icon type={item.icon} style={{ display: "block", fontSize: "30px", margin: 0, padding: 0 }} />
-                    <span style={{ fontSize: "12px" }}>{item.text}</span>
+
                   </>
-              }
+                  {
+                    item.name == 'Cart'
+                      ?
+                      <Badge count={1}><Icon type={item.icon} style={{ display: "block", fontSize: "30px", margin: 0, padding: 0 }} />
+                        <span style={{ fontSize: "12px" }}>{item.text}</span></Badge>
+                      :
+                      <>
+                        <Icon type={item.icon} style={{ display: "block", fontSize: "30px", margin: 0, padding: 0 }} />
+                        <span style={{ fontSize: "12px" }}>{item.text}</span>
+                      </>
+                  }
 
 
-            </Menu.Item>)
-          }
+                </Menu.Item>
+              })
+            }
 
-        </Menu>
+          </Menu> :
+            <></>
+        }
+
+
+
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/list" component={List} />
@@ -92,12 +142,24 @@ class App extends Component {
           {/* 动态路由 */}
           <Route path="/goods/:id" component={Goods} />
           <Route path="/cart" component={Cart} />
+          <Route path="/reg" component={Reg} />
+          {/* <Route path="/cart" component={Cart} /> */}
           {/* <Route path="/" render={()=><div>我的首页</div>} exact/> */}
           <Redirect from="/" to="/home" />{/* 404 */}
         </Switch>
-      </div>
+      </div >
     );
   }
 }
+
+App = connect(
+  state => ({
+    showMenu: state.comon.showMenu
+  }),
+  dispatch => bindActionCreators(commonaction, dispatch)
+)(App)
+
+
+
 App = withRouter(App);
 export default App;
