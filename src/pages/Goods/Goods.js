@@ -7,7 +7,7 @@ import withAxios from '../../hoc/withAxios'
 
 let Goods = (props) => {
 
-
+    console.log(props)
 
     return <div className="goods">
         商品

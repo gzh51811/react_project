@@ -4,11 +4,14 @@ import List from './pages/List/List';
 import Goods from './pages/Goods/Goods';
 import Reg from './pages/Reg/Reg';
 import Cart from './pages/Cart/Cart';
+import Mine from './pages/Mine/Mine';
+import Login from './pages/Reg/Login';
 import './App.css';
 import { Menu, Icon, Badge } from 'antd';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import commonaction from "./actions/commonaction"
+
 import { Route, Redirect, Switch, NavLink, withRouter } from 'react-router-dom';
 class App extends Component {
   constructor() {
@@ -75,19 +78,43 @@ class App extends Component {
 
     });
   }
+  componentWillMount() {
+    // console.log(this.props.history.location)
+    let { pathname } = this.props.history.location;
+    let str1 = pathname.slice(1);
+    let str = str1.substring(0, 1).toUpperCase() + str1.substring(1);
+
+    this.setState({
+      current: str
+    })
+  }
+
+
+
 
   componentDidUpdate() {
     let { show, hide, location } = this.props;
-    console.log(location)
+    // console.log(location)
     if (location.pathname === "/home" || location.pathname === "/list" || location.pathname === "/cart" || location.pathname === "/mine") {
       show()
     } else {
       hide();
     }
+
   }
 
 
   render() {
+    // console.log(this.props.goodslist);
+    // var quantity = 1
+    // if (this.props.goodslist) {
+    //   console.log(this.props.goodslist.data.arr.length)
+    //   var quantity = this.props.goodslist.data.arr.length
+    // }
+    let { goodslist: { data } } = this.props;
+    if (data) {
+      var quantity = data.arr.length
+    }
 
     let { showMenu } = this.props;
 
@@ -99,7 +126,7 @@ class App extends Component {
             onClick={this.handleClick.bind(this)}
             mode="horizontal"
             selectedKeys={[this.state.current]}
-            style={{ position: "fixed", bottom: 0, width: "100%", margin: 0, padding: 0, textAlign: "center" }}
+            style={{ position: "fixed", bottom: 0, width: "100%", margin: 0, padding: 0, zIndex: 1000, textAlign: "center" }}
 
           >
             {
@@ -113,9 +140,9 @@ class App extends Component {
 
                   </>
                   {
-                    item.name == 'Cart'
+                    item.name === 'Cart'
                       ?
-                      <Badge count={1}><Icon type={item.icon} style={{ display: "block", fontSize: "30px", margin: 0, padding: 0 }} />
+                      <Badge count={quantity} style={{ zIndex: "999" }}><Icon type={item.icon} style={{ display: "block", fontSize: "30px", margin: 0, padding: 0 }} />
                         <span style={{ fontSize: "12px" }}>{item.text}</span></Badge>
                       :
                       <>
@@ -138,12 +165,12 @@ class App extends Component {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/list" component={List} />
-
+          <Route path="/mine" component={Mine} />
           {/* 动态路由 */}
           <Route path="/goods/:id" component={Goods} />
           <Route path="/cart" component={Cart} />
           <Route path="/reg" component={Reg} />
-          {/* <Route path="/cart" component={Cart} /> */}
+          <Route path="/login" component={Login} />
           {/* <Route path="/" render={()=><div>我的首页</div>} exact/> */}
           <Redirect from="/" to="/home" />{/* 404 */}
         </Switch>
@@ -154,7 +181,8 @@ class App extends Component {
 
 App = connect(
   state => ({
-    showMenu: state.comon.showMenu
+    showMenu: state.comon.showMenu,
+    goodslist: state.cart.goodslist
   }),
   dispatch => bindActionCreators(commonaction, dispatch)
 )(App)

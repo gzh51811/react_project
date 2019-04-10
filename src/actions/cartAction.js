@@ -7,31 +7,39 @@ export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const CHANGE_QTY = 'CHANGE_QTY'
 export const CLEAR_CART = 'CLEAR_CART'
+export const DATA_IN_CART = 'DATA_IN_CART'
 
-export function add(goods){
+export function checkCartList(list) {
     return {
-        type:ADD_TO_CART,
-        payload:goods
+        type: DATA_IN_CART,
+        payload: list
     }
 }
 
-export function remove(id){
+export function add(goods) {
     return {
-        type:REMOVE_FROM_CART,
-        payload:{id}
+        type: ADD_TO_CART,
+        payload: goods
     }
 }
 
-export function changeqty(id,qty){
+export function remove(id) {
     return {
-        type:CHANGE_QTY,
-        payload:{id,qty}
+        type: REMOVE_FROM_CART,
+        payload: { id }
     }
 }
 
-export function clear(){
+export function changeqty(id, qty) {
     return {
-        type:CLEAR_CART
+        type: CHANGE_QTY,
+        payload: { id, qty }
+    }
+}
+
+export function clear() {
+    return {
+        type: CLEAR_CART
     }
 }
 
@@ -40,5 +48,6 @@ export default {
     add,
     remove,
     changeqty,
-    clear
+    clear,
+    checkCartList
 }
