@@ -3,13 +3,15 @@ import Home from './pages/Home/Home';
 import List from './pages/List/List';
 import Goods from './pages/Goods/Goods';
 import Reg from './pages/Reg/Reg';
+import Login from './pages/Reg/Login';
 import Cart from './pages/Cart/Cart';
+import Mine from './pages/Mine/Mine';
 import './App.css';
 import { Menu, Icon, Badge } from 'antd';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import commonaction from "./actions/commonaction"
-import { Route, Redirect, Switch, NavLink, withRouter } from 'react-router-dom';
+import { Route, Redirect, Switch,  withRouter } from 'react-router-dom';
 class App extends Component {
   constructor() {
     super();
@@ -59,7 +61,7 @@ class App extends Component {
         },
       ],
       current: 'Home',
-
+      username:'',
     }
 
   }
@@ -113,7 +115,7 @@ class App extends Component {
 
                   </>
                   {
-                    item.name == 'Cart'
+                    item.name === 'Cart'
                       ?
                       <Badge count={1}><Icon type={item.icon} style={{ display: "block", fontSize: "30px", margin: 0, padding: 0 }} />
                         <span style={{ fontSize: "12px" }}>{item.text}</span></Badge>
@@ -138,11 +140,13 @@ class App extends Component {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/list" component={List} />
+          <Route path="/mine" component={Mine} />
 
           {/* 动态路由 */}
           <Route path="/goods/:id" component={Goods} />
           <Route path="/cart" component={Cart} />
           <Route path="/reg" component={Reg} />
+          <Route path="/login" component={Login} />
           {/* <Route path="/cart" component={Cart} /> */}
           {/* <Route path="/" render={()=><div>我的首页</div>} exact/> */}
           <Redirect from="/" to="/home" />{/* 404 */}

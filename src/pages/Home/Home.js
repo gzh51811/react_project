@@ -1,9 +1,11 @@
 import React from 'react';
-
-let Home = ()=>{
-    return <div className="home">
-        首页
-    </div>
+import { withRouter } from 'react-router-dom';
+class Home extends React.Component {
+    
+    render() {
+        return (<div className="home">
+        </div>)
+    }
 }
-
+Home = withRouter(Home); 
 export default Home;

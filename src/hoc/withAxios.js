@@ -10,6 +10,6 @@ import axios from 'axios';
  */
 export default (Com) => {
     return function (props, context) {
-        return <Com axios={axios} {...props} {...context} />
+        return <Com axios={axios}  props={props} {...context} />
     }
 }
