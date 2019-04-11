@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+// import { Switch, Route } from 'react-router-dom';
 
 // import "regenerator-runtime/runtime";
 import Search from "../../components/search"
@@ -10,6 +10,12 @@ import "./list.css"
 import { List, Avatar, Menu, Layout } from 'antd';
 import axios from 'axios';
 const { Header, Content, Sider } = Layout;
+
+// import withAxios from '../../hoc/withAxios';
+
+
+
+// const { Header, Content, Sider } = Layout;
 
 
 class MyList extends React.Component {
@@ -27,15 +33,12 @@ class MyList extends React.Component {
     }
 
     screenScroll() {
-        console.log(window)
 
-        // this.setState({
-        //     scrollClassName: "hideMenuBoxz"
-        // })
+
 
     }
     async componentWillMount() {
-        // console.log(this)
+
         let { currentList, currentCate } = this.state;
         let { data } = await axios.get("http://localhost:3001/goodslist", {
             params: {
@@ -52,8 +55,7 @@ class MyList extends React.Component {
 
 
     async currentCategory(currentList = "a", currentCate = 0) {
-        // let { currentList, currentCate } = this.state;
-        // console.log(currentList, currentCate)
+
         this.setState({
             currentList: currentList,
             currentCate: currentCate,
@@ -65,7 +67,7 @@ class MyList extends React.Component {
                 currentCate
             }
         })
-        // console.log(data)
+
         this.setState({
             goodslist: data.code,
             wait: "none"
@@ -73,12 +75,11 @@ class MyList extends React.Component {
     }
 
     render() {
-        // console.log(this.props)
-        // console.log(this.state.goodslist)
-        // let list = [this.state.goodslist];
+
+
 
         return <div id="list" className={this.state.scrollClassName}
-        // onTouchMove={this.screenScroll.bind(this)}
+
         >
             <Search></Search>
             <Categroy currentCategory={this.currentCategory.bind(this)}></Categroy>

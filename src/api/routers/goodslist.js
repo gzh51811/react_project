@@ -15,7 +15,7 @@ router.get('/', async (ctx, next) => {
     // console.log(ctx.query)
     let { currentList, currentCate } = ctx.query;
     // let res = await db.find('goodslist', {});
-    // console.log(currentList, currentCate)
+
     if (currentList === "a") {
         if (currentCate === "1") {
             var res = await db.find("goodslist", { 'goods_name': /苹果/ });
@@ -24,7 +24,9 @@ router.get('/', async (ctx, next) => {
         }
 
     } else {
+
         res = await db.find("goodslist", { 'goods_name': /梨/ });
+
     }
 
 

@@ -31,14 +31,13 @@ class Cart extends React.Component {
 
     async componentWillMount() {
 
-        // console.log(this)
-        // let { currentList, currentCate } = this.state;
+
         await axios.get("http://localhost:3001/checkcart", {
 
         }).then(res => {
-            // console.log(res)
+
             this.props.checkCartList(res);
-            // console.log(this.props)
+
             if (this.props.goodslist.data && this.props.goodslist.data.arr.length) {
                 this.setState({
                     noGoods: "withoutGoods_showBox  hide"
@@ -49,10 +48,10 @@ class Cart extends React.Component {
                 })
             }
         })
-        // console.log(this.props.goodslist)
+
 
         let arr1 = this.props.goodslist.data.arr.map(item => true)
-        // console.log(arr)
+
 
         this.setState({
             allCheckbox: arr1,
@@ -61,12 +60,12 @@ class Cart extends React.Component {
 
 
 
-        // console.log(total)
+
 
     }
 
     changeCheckbox(idx) {
-        // console.log(this.state.allCheckbox[idx])
+
         var arr = this.state.allCheckbox;
         arr[idx] = !this.state.allCheckbox[idx];
         this.setState({
@@ -95,13 +94,13 @@ class Cart extends React.Component {
 
         if (isPickAll) {
             arr = arr.map(item => true)
-            // console.log(arr)
+
             this.setState({
                 allCheckbox: arr
             })
         } else {
             arr = arr.map(item => false)
-            // console.log(arr)
+
             this.setState({
                 allCheckbox: arr
             })
@@ -131,8 +130,6 @@ class Cart extends React.Component {
             })
         }, 500);
         changeqty(item._id, qty);
-        // console.log(data.arr[idx])
-        // console.log(this.qtyValue)
 
 
     }
@@ -177,7 +174,7 @@ class Cart extends React.Component {
     }
     goToRemove(e) {
         let { isHide, allCheckbox } = this.state;
-        // console.log(this.del)
+
         if (isHide) {
             e.target.innerHTML = "完成";
             this.del.innerHTML = "删除";
@@ -210,13 +207,13 @@ class Cart extends React.Component {
                 }
             }
             let arr1 = arr.map(item => {
-                // console.log(this.props.goodslist.data.arr[item])
+
                 return this.props.goodslist.data.arr[item].id
             })
 
 
-            // remove(arr1);
-            // console.log(this.props.goodslist)
+
+
             var hrr = this.props.goodslist.data.arr.filter(item => {
                 var brr = [];
                 for (var i = 0; i < arr1.length; i++) {
@@ -226,14 +223,14 @@ class Cart extends React.Component {
                         brr[i] = true
                     }
                 }
-                // console.log(brr)
+
                 return !(brr.some((yes => yes)))
             })
             this.props.goodslist.data.arr = hrr;
 
-            // console.log(obj)
+
             this.props.checkCartList(this.props.goodslist)
-            // console.log(this.props.goodslist.data.arr)
+
             var params = new URLSearchParams();
             params.append("id", arr1); //你要传给后台的参数值 key/value
             axios({
@@ -241,7 +238,7 @@ class Cart extends React.Component {
                 url: "http://localhost:3001/addcart",
                 data: params
             }).then(res => {
-                // console.log(res)
+
                 clearTimeout(timer);
                 this.setState({
                     wait: "block",
@@ -276,10 +273,10 @@ class Cart extends React.Component {
     render() {
 
         let { goodslist, changeqty, remove } = this.props;
-        // console.log(data)
-        // console.log(11)
+
+
         let total = 0;
-        // console.log(goodslist.data)
+
         if (goodslist.data && goodslist.data.arr.length) {
             total = this.totalPrice().toFixed(2);
         }

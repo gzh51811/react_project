@@ -230,14 +230,14 @@ class Category extends Component {
     }
 
     changeCurrentList(cid) {
-        // console.log(cid)
+
         this.setState({
             currentList: cid,
             currentCate: 0
         }, () => {
 
             let { currentList, currentCate } = this.state;
-            // console.log(currentList, currentCate)
+
             this.props.currentCategory(currentList, currentCate)
         })
 
@@ -250,7 +250,7 @@ class Category extends Component {
             currentCate: kid
         }, () => {
             let { currentList, currentCate } = this.state;
-            // console.log(currentList, currentCate)
+
             this.props.currentCategory(currentList, currentCate)
         })
     }

@@ -3,9 +3,10 @@ import Home from './pages/Home/Home';
 import List from './pages/List/List';
 import Goods from './pages/Goods/Goods';
 import Reg from './pages/Reg/Reg';
+import Login from './pages/Reg/Login';
 import Cart from './pages/Cart/Cart';
 import Mine from './pages/Mine/Mine';
-import Login from './pages/Reg/Login';
+// import Login from './pages/Reg/Login';
 import './App.css';
 import { Menu, Icon, Badge } from 'antd';
 import { connect } from "react-redux";
@@ -62,24 +63,24 @@ class App extends Component {
         },
       ],
       current: 'Home',
-
+      username: '',
     }
 
   }
   handleClick(e) {
-    // console.log(this)
+
     this.setState({
       current: e.key
     }, () => {
       //路由跳转：编程式导航
       // 利用withRouter()高阶组件实现history的传递
-      // console.log('App', this.props);
+
       this.props.history.push('/' + e.key.toLowerCase());
 
     });
   }
   componentWillMount() {
-    // console.log(this.props.history.location)
+
     let { pathname } = this.props.history.location;
     let str1 = pathname.slice(1);
     let str = str1.substring(0, 1).toUpperCase() + str1.substring(1);
@@ -94,7 +95,7 @@ class App extends Component {
 
   componentDidUpdate() {
     let { show, hide, location } = this.props;
-    // console.log(location)
+
     if (location.pathname === "/home" || location.pathname === "/list" || location.pathname === "/cart" || location.pathname === "/mine") {
       show()
     } else {
@@ -105,12 +106,7 @@ class App extends Component {
 
 
   render() {
-    // console.log(this.props.goodslist);
-    // var quantity = 1
-    // if (this.props.goodslist) {
-    //   console.log(this.props.goodslist.data.arr.length)
-    //   var quantity = this.props.goodslist.data.arr.length
-    // }
+
     let { goodslist: { data } } = this.props;
     if (data) {
       var quantity = data.arr.length
@@ -166,11 +162,13 @@ class App extends Component {
           <Route path="/home" component={Home} />
           <Route path="/list" component={List} />
           <Route path="/mine" component={Mine} />
+
           {/* 动态路由 */}
           <Route path="/goods/:id" component={Goods} />
           <Route path="/cart" component={Cart} />
           <Route path="/reg" component={Reg} />
           <Route path="/login" component={Login} />
+          {/* <Route path="/cart" component={Cart} /> */}
           {/* <Route path="/" render={()=><div>我的首页</div>} exact/> */}
           <Redirect from="/" to="/home" />{/* 404 */}
         </Switch>

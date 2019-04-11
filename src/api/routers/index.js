@@ -11,6 +11,9 @@ const listRouter = require('./goodslist');
 const cartRouter = require('./checkcart');
 const addcartRouter = require('./addcart');
 const listToCartRouter = require('./listToCart');
+const goodsRouter = require('./goods');
+const regRouter = require('./reg');
+
 
 let url = '';
 router.use('/', koaBody({
@@ -33,8 +36,17 @@ router.use('/', koaBody({
         }
     }
 }));
+
 router.use('/addcart', addcartRouter.routes());
 router.use('/goodslist', listRouter.routes());
 router.use('/checkcart', cartRouter.routes());
 router.use('/listToCart', listToCartRouter.routes());
+
+
+
+router.use('/goods', goodsRouter.routes());
+router.use('/reg', regRouter.routes());
+
+
+
 module.exports = router;

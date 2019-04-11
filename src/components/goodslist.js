@@ -29,10 +29,10 @@ class Goodslist extends Component {
 
 
         })
-        // console.log(window.scrollY)
+
     }
     addCart(item) {
-        // console.log(item)
+
         clearTimeout(timer)
         axios.get('http://localhost:3001/listToCart', {
             params: {
@@ -59,13 +59,10 @@ class Goodslist extends Component {
                 wait: "none"
             })
         }, 500);
-        console.log(this.props.total)
+
     }
     render() {
 
-        // console.log(this.props.goodslist)
-        // console.log(window.scrollY)
-        // console.log(this)
         return <><div className="scroll_component" style={{ height: "7rem" }}
             onTouchMove={this.props.screenScroll.bind(this)}
         >

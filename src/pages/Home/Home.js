@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Carousel } from 'antd';
 import "./home.css";
 class Home extends React.Component {
@@ -33,7 +34,7 @@ class Home extends React.Component {
     changemiaosha(idx){
         this.setState({
             mst:this.state.mst.map((item,num)=>{
-                console.log(idx,num)
+
                 if(num===idx) {
                     return true
                 }else{
@@ -481,4 +482,8 @@ class Home extends React.Component {
     }
 
 }
+
+
+
+
 export default Home;
