@@ -12,7 +12,7 @@ var router = new Router();
 router.post('/',async (ctx,next)=>{
     ctx.set("Access-Control-Allow-Origin", "*");
     // 解构
-    console.log(ctx.request.body);
+    
     let {password,phone} = ctx.request.body;
     let data = {phone,password,regtime:Date.now()}
     let res = await db.insert('users',data);

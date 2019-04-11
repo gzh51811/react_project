@@ -40,15 +40,19 @@ class MyList extends React.Component {
     async componentWillMount() {
 
         let { currentList, currentCate } = this.state;
-        let { data } = await axios.get("http://localhost:3001/goodslist", {
-            params: {
-                currentList,
-                currentCate
-            }
-        })
-        this.setState({
-            goodslist: data.code,
-            wait: "none"
+        var params = new URLSearchParams();
+        params.append("currentList", currentList); //你要传给后台的参数值 key/value
+        params.append("currentCate", currentCate);   
+        await axios({
+            method: "post",
+            url: "http://localhost:3001/goodslist",
+            data:params
+        }).then(res=>{
+        
+            this.setState({
+                goodslist: res.data.code,
+                wait: "none"
+            })
         })
 
     }
@@ -61,17 +65,28 @@ class MyList extends React.Component {
             currentCate: currentCate,
             wait: "block"
         })
-        let { data } = await axios.get("http://localhost:3001/goodslist", {
-            params: {
-                currentList,
-                currentCate
-            }
+        // let { data } = await axios.get("http://47.107.182.207:3001:3001:3001/goodslist", {
+        //     params: {
+        //         currentList,
+        //         currentCate
+        //     }
+        // })
+        var params = new URLSearchParams();
+        params.append("currentList", currentList); //你要传给后台的参数值 key/value
+        params.append("currentCate", currentCate);   
+        await axios({
+            method: "post",
+            url: "http://localhost:3001/goodslist",
+            data:params
+        }).then(res=>{
+            this.setState({
+                goodslist: res.data.code,
+                wait: "none"
+            })
         })
 
-        this.setState({
-            goodslist: data.code,
-            wait: "none"
-        })
+
+        
     }
 
     render() {

@@ -20,7 +20,7 @@ router.get('/', async (ctx, next) => {
     }
 
     if (state === 'addcart') {
-        console.log(_id)
+       
         let res = await db.find('cartlist', { "id": _id });
 
         // console.log(res.length);

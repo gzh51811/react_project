@@ -133,7 +133,7 @@ class Home extends React.Component {
           <div className="seckill_sole_box">
             <div className="secKill_sole">
               <div className="seckill-title">
-                <div className="seckill_title"><img src="/img/home_seckill.png"/><span className="title">整点秒杀</span></div>
+                <div className="seckill_title"><span className="title">整点秒杀</span></div>
               </div>
               <div className="seckill_tab">
                 
@@ -472,8 +472,7 @@ class Home extends React.Component {
             </span>
           </div>
          
-          <div className="woAppContainer hideAppTo" id="woAppContainer"><span className="appTipClose"></span><img
-              src="/img/download/icon_cxy.png"  alt=""/>
+          <div className="woAppContainer hideAppTo" id="woAppContainer"><span className="appTipClose"></span>
             <h3>翠鲜缘APP</h3>
             <p>专业水果采购平台</p><span className="openApp">立即打开</span>
           </div>

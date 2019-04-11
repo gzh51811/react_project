@@ -10,10 +10,11 @@ var router = new Router();
  * ctx
  */
 
-router.get('/', async (ctx, next) => {
-    ctx.set("Access-Control-Allow-Origin", "*")
+router.post('/', async (ctx, next) => {
+    // ctx.set("Access-Control-Allow-Origin", "*");
+    ctx.set("Access-Control-Allow-Origin", "*");
     // console.log(ctx.query)
-    let { currentList, currentCate } = ctx.query;
+    let { currentList, currentCate } = ctx.request.body;
     // let res = await db.find('goodslist', {});
 
     if (currentList === "a") {
