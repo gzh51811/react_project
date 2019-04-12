@@ -7,12 +7,8 @@
 
 https://github.com/gzh51811/react_project.git
 
-（app）演示地址
-
 
 http://47.107.182.207:5000
 
-（后台管理系统）演示地址
 
-http://47.107.182.207:1915
 

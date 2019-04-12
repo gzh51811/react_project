@@ -42,13 +42,13 @@ class MyList extends React.Component {
         let { currentList, currentCate } = this.state;
         var params = new URLSearchParams();
         params.append("currentList", currentList); //你要传给后台的参数值 key/value
-        params.append("currentCate", currentCate);   
+        params.append("currentCate", currentCate);
         await axios({
             method: "post",
             url: "http://localhost:3001/goodslist",
-            data:params
-        }).then(res=>{
-        
+            data: params
+        }).then(res => {
+
             this.setState({
                 goodslist: res.data.code,
                 wait: "none"
@@ -73,12 +73,12 @@ class MyList extends React.Component {
         // })
         var params = new URLSearchParams();
         params.append("currentList", currentList); //你要传给后台的参数值 key/value
-        params.append("currentCate", currentCate);   
+        params.append("currentCate", currentCate);
         await axios({
             method: "post",
             url: "http://localhost:3001/goodslist",
-            data:params
-        }).then(res=>{
+            data: params
+        }).then(res => {
             this.setState({
                 goodslist: res.data.code,
                 wait: "none"
@@ -86,7 +86,7 @@ class MyList extends React.Component {
         })
 
 
-        
+
     }
 
     render() {
