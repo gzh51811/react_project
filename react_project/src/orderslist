@@ -1,0 +1,11 @@
+{"_id":{"$oid":"5c788ca70df7aec824f6b0d9"},"cname":"商品1","shuliang":"1","jiage":"￥100","amount":"￥100","state1":"已付款","state2":"已发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c788f1b0df7aec824f6b126"},"cname":"商品2","shuliang":"6","jiage":"￥20","amount":"￥120","state1":"已付款","state2":"已发货","state3":"已签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c788f510df7aec824f6b12f"},"cname":"商品3","shuliang":"2","jiage":"￥299","amount":"￥598","state1":"已付款","state2":"等待发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c788f720df7aec824f6b132"},"cname":"商品4","shuliang":"1","jiage":"￥2000","amount":"￥2000","state1":"已付款","state2":"等待发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c788f900df7aec824f6b13a"},"cname":"商品5","shuliang":"3","jiage":"￥2.5","amount":"￥7.5","state1":"已付款","state2":"已发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c788fb90df7aec824f6b141"},"cname":"商品6","shuliang":"1","jiage":"￥20","amount":"￥20","state1":"已付款","state2":"已发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c788fd60df7aec824f6b145"},"cname":"商品7","shuliang":"1000","jiage":"￥19","amount":"￥19000","state1":"已付款","state2":"等待发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c788ff00df7aec824f6b149"},"cname":"商品8","shuliang":"1","jiage":"￥199999","amount":"￥199999","state1":"已付款","state2":"等待发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c789abf0df7aec824f6b26b"},"cname":"商品9","shuliang":"1","jiage":"￥23","amount":"￥23","state1":"已付款","state2":"已发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c789b310df7aec824f6b27f"},"cname":"商品10","shuliang":"6","jiage":"￥120","amount":"￥720","state1":"已付款","state2":"等待发货","state3":"等待签收","state4":"等待完成订单"}
+{"_id":{"$oid":"5c789b460df7aec824f6b285"},"cname":"商品11","shuliang":"2","jiage":"￥121","amount":"￥242","state1":"已付款","state2":"等待发货","state3":"等待签收","state4":"等待完成订单"}

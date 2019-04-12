@@ -1,0 +1,174 @@
+#addr_map #area_list {
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 1.68rem;
+    left: 0;
+    z-index: 100000;
+    bottom: 0;
+    padding: 0 0.1rem;
+    background: #fff;
+    padding-top: 0.2rem;
+    overflow-y: auto
+}
+
+#addr_map #area_list .area_group {
+    width: 100%;
+    height: auto
+}
+
+#addr_map #area_list .area_item {
+    width: 100%;
+    margin-bottom: 0.2rem;
+    font-size: 0.24rem
+}
+
+#addr_map #area_list .area_item .address_name {
+    margin-bottom: 0.05rem
+}
+
+#addr_map #area_list .area_item .address_name .name {
+    color: #000;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+#addr_map #area_list .area_item .address_name .distance {
+    color: #666;
+    float: right;
+    font-size: 0.18rem
+}
+
+#addr_map #area_list .area_item .address_name .clearfix:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+#addr_map #area_list .area_item .address {
+    color: #666;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+#addr_map .mask {
+    position: absolute;
+    width: 100%;
+    top: 1.68rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10000
+}
+
+#addr_map #near_by_list {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0.2rem;
+    padding-left: 0.35rem;
+    background: url("/img/user_map/mapdingwei@3x.png") no-repeat 0rem 0.15rem;
+    background-size: 0.4rem 0.4rem
+}
+
+#addr_map #near_by_list .nearby_item {
+    width: 100%;
+    margin-bottom: 0.2rem;
+    font-size: 0.24rem
+}
+
+#addr_map #near_by_list .nearby_item .nearby_name {
+    margin-bottom: 0.05rem
+}
+
+#addr_map #near_by_list .nearby_item .nearby_name .name {
+    color: #000;
+    float: left;
+    width: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+#addr_map #near_by_list .nearby_item .nearby_name .distance {
+    color: #666;
+    float: right;
+    font-size: 0.18rem
+}
+
+#addr_map #near_by_list .nearby_item .nearby_name .clearfix:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+#addr_map #near_by_list .nearby_item .nearby_addr {
+    color: #666;
+    width: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+#list_content .content_info .pri:before {
+    content: "\FFE5";
+}
+
+#cover_module:before {
+
+    background: url(../../assets/img/loading.gif) no-repeat center center;
+    background-size: 2rem 1.2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+
+
+}
+
+.pub_checkbox.active {
+    background-image: url(../../assets/img/pub_check_act.jpg);
+}
+
+.pub_checkbox {
+    width: .35rem;
+    height: .36rem;
+    background: url(../../assets/img/pub_check.jpg) center no-repeat;
+    background-size: .32rem .32rem;
+}
+
+#cart #cart_li .li_con .shop_tit .shop:before {
+    content: "";
+    display: block;
+    background: url(../../assets/img/pub_store.png) center no-repeat;
+    position: absolute;
+    top: 0;
+    background-size: .3rem .27rem;
+    height: 100%;
+    width: .3rem;
+    left: .16rem;
+}
+
+#cart #cart_li .li_con .shop_tit .shop:after {
+    content: "";
+    display: block;
+    background: url(../../assets/img/pub_gt.png) center no-repeat;
+    position: absolute;
+    top: 0;
+    background-size: .13rem .23rem;
+    height: 100%;
+    width: .13rem;
+    right: 0;
+}
+
+#cart .go_pay .pri_text>span:first-child i:before {
+    content: '\FFE5';
+}
+
+#cart #cart_li .li_con .cart_pro .pro_info .pri:before {
+    content: "\FFE5";
+}
